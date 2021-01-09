@@ -20,9 +20,9 @@ K8S dashboard
 
 1. InfluxDB and Heapster 
 2. Install metric server on EKS cluster 
-
-curl -Ls $DOWNLOAD_URL -o metrics-server-$DOWNLOAD_VERSION.tar.gz
-
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')
+kubectl proxy 
 01/09/2020  EKS Day3 
 
 1. Liveness probe --> Many applications running for long periods of time eventually transition to broken 
