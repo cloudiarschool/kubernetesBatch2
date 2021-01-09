@@ -1,0 +1,32 @@
+12/05/2020  EKS notes 
+
+EKS has 2 main parts --> 1) Control plane and 2) Node Group 
+EKS doc --> https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html
+
+1. eksctl get nodegroup --cluster <ClusterName> 
+2. kubectl get nodes
+3. kubectl get nodes -o wide --> Gives you more info 
+4. eksctl utils update-cluster-logging --config-file=<ClusterConfig file name> --approve
+5. eksctl utils update-cluster-logging --name=<ClusterName> --disable-types all --approve
+6. Namespaces --> Namespaces are a way to divide cluster resources between multiple users
+7. kubectl get namespaces (ns) 
+8. kubectl get all -n amazon-cloudwatch --> Gives all running services in amazon-cloudwatch namespace 
+9. daemonset --> A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, 
+Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. 
+Deleting a DaemonSet will clean up the Pods it created.
+10. eksctl scale nodegroup --cluster=<ClusterName> --nodes=<NumberofNodes> --name=demo-ng
+
+K8S dashboard
+
+1. InfluxDB and Heapster 
+2. Install metric server on EKS cluster 
+
+curl -Ls $DOWNLOAD_URL -o metrics-server-$DOWNLOAD_VERSION.tar.gz
+
+01/09/2020  EKS Day3 
+
+1. Liveness probe --> Many applications running for long periods of time eventually transition to broken 
+states, and cannot recover except by being restarted. Kubernetes provides liveness probes to detect and 
+remedy such situations. https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+2. Stateful vs Stateless apps in K8S --> 
+3. By Default K8S is Stateless --> Because it doesnt come with Persistent Volume. 

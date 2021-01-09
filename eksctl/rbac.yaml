@@ -1,0 +1,24 @@
+kind: Role 
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  namespace: production 
+  name: k8s-cluster-admin 
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
+
+--- 
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: k8s-cluster-admin-binding
+  namespace: production 
+subjects:
+- kind: User
+  name: k8s-cluster-admin
+  apiGroup: ""
+roleRef:
+  kind: Role 
+  name: k8s-cluster-admin 
+  apiGroup: ""
