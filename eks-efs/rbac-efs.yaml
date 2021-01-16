@@ -5,7 +5,7 @@ metadata:
   name: nfs-provisioner-role-binding
 subjects:
   - kind: ServiceAccount
-    name: default
+    name: efs-provisioner
     namespace: eks-efs
 roleRef:
   kind: ClusterRole 

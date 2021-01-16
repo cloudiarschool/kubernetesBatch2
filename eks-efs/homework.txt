@@ -1,0 +1,6 @@
+Homework for 01/23/2021
+
+1. Take deploy-wordpress and deploy-mysql yaml file and convert them from Deployment to StatefulSet
+2. Increase the replica count from 1 to 3 for both 
+3. Do Chaos Monkey test --> Lets say you have 3 pods running. Kill one of the pod and see how pod is getting 
+recreated. You will check the output by running --> kubectl get sts 
